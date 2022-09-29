@@ -4,9 +4,9 @@
 - `default immutability`: 
 - `default immutable references`: can't change a borrowed value.
 - `Reference mutability`: At any given time, you can have either one mutable reference or any number of immutable references (preventing data race).
-- Memory Allocation/Cleanup:
+- Memory Allocation/Cleanup: Owner of data automatically clean up that data when the owner goes out of scope.
     - `C++`: Programmers Responsibility
-    - `Rust`: Hardcoded rules.
+    - `Rust`: Algorithm/compiler's responsibility.
     - `Java`: Machine's Responsibility(GC)
 
 ## Language specific rules
@@ -26,7 +26,7 @@
     - `arrays` []: same type, fixed length.
         - `let a = [3; 5]` == `let a = [3, 3, 3, 3, 3]`
         - When we access an element using indexing(`idx`), Rust checks `if idx < arr_len`, If the `idx>=arr_len` Rust will panic(disallowing memmory access).
-- `slice`: reference a contiguous sequence of elements in a collection rather than the whole collection.(No ownership).
+- `slice`(subarray): reference a contiguous sequence of elements in a collection rather than the whole collection.(No ownership). `[starting_index..ending_index]`.
 - 
 
 ### Functions
